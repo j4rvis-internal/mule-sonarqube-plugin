@@ -1,0 +1,6 @@
+1. Clone the J4rvis Changes Branch
+2. Create Docker Image - 'docker build --tag=j4rvis/sonarqube-mule .'
+3. Start Sonarqube server - 'docker run -d --name sonarqube-mule -p 9000:9000 j4rvis/sonarqube-mule'
+4. Login to Sonarqube server, set a new password. Remove XML from Language settings (as administrator, go to Administration-> Configuration->General Settings->XML and delete the .xml extension from it).
+5. Scan your Mule Project - 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=src -Dsonar.login=admin -Dsonar.password=j4rvis'
+6. Check results in Sonarqube server.
